@@ -3,6 +3,8 @@ package com.atlzq.springcloud.controller;
 import com.atlzq.springcloud.entity.User;
 import com.atlzq.springcloud.service.IUserService;
 import com.atlzq.springcloud.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("user")
+@Api("用户查询")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -26,16 +29,19 @@ public class UserController {
     private IUserService iUserService;
 
     @GetMapping("findAll")
+    @ApiOperation("查询所有用户")
     public List<User> findAll(){
         return userService.findAll();
     }
 
     @GetMapping("findPage")
+    @ApiOperation("分页查询用户")
     public List<User> findPage(@RequestParam("page") Integer page,@RequestParam("pageSize") Integer pageSize){
         return userService.findPage(page,pageSize);
     }
 
     @GetMapping("saveUserData")
+    @ApiOperation("保存用户")
     public void inserUserData(){
         User user = new User();
         user.setAge(1);
