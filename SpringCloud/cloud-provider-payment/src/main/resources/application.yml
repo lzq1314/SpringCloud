@@ -1,0 +1,20 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.0.109:3306/springcloud?characterEncoding=utf-8&userSSL=false
+    username: root
+    password: 123456
+  #datasource:
+  #  driver-class-name: org.postgresql.Driver
+  #  username: postgres
+  #  password: postgres
+  #  url: jdbc:postgresql://192.168.1.6:5432/postgres?currentSchema=test
+  mybatis-plus:
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
