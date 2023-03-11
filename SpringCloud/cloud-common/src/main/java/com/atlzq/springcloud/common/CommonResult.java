@@ -21,7 +21,7 @@ public class CommonResult<T> {
     //响应数据
     private T data;
 
-    public CommonResult(Integer code,String message){
+    public CommonResult(Integer code, String message){
         this(code,message,null);
     }
 
