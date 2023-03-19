@@ -2,6 +2,7 @@ package com.atlzq.springcloud;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @Description TODO
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @Created by lzq
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@EnableEurekaClient
 public class OrderMain {
     public static void main(String[] args) {
         SpringApplication.run(OrderMain.class,args);

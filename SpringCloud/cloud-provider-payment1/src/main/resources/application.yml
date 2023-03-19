@@ -1,0 +1,35 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://192.168.0.109:3306/springcloud?characterEncoding=utf-8&userSSL=false
+    username: root
+    password: 123456
+  #datasource:
+  #  driver-class-name: org.postgresql.Driver
+  #  username: postgres
+  #  password: postgres
+  #  url: jdbc:postgresql://192.168.1.6:5432/postgres?currentSchema=test
+  mybatis-plus:
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+
+#Eureka 配置
+eureka:
+  client:
+    #表示是否将自己注册进入eurekaServer 默认是true
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有注册信息，默认为true,单节点无所谓，几圈必须设置为true才能配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: payment8002
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 1 #Eureka客户端向服务端发送心跳的时间间隔
+    lease-expiration-duration-in-seconds: 2 #Eureka服务端在收到最后一次心跳后等待时间上限，超时将剔除服务

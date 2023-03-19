@@ -9,6 +9,12 @@
     <module>cloud-provider-payment</module>
     <module>cloud-consumer-order</module>
       <module>cloud-common</module>
+      <module>cloud-eureka-server</module>
+    <module>cloud-eureka-server1</module>
+    <module>cloud-eureka-server2</module>
+    <module>cloud-provider-payment1</module>
+      <module>cloud-consumer-feign-order</module>
+      <module>cloud-gateway-gateway</module>
   </modules>
   <packaging>pom</packaging>
 

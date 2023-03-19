@@ -17,7 +17,8 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("order")
 public class OrderController {
-    public static final String PAYMENT_URL = "http://localhost:8001";
+    //public static final String PAYMENT_URL = "http://localhost:8001";
+    public static final String PAYMENT_URL = "http://CLOUD-GATEWAY";
     @Autowired
     private RestTemplate restTemplate;
 
@@ -36,7 +37,7 @@ public class OrderController {
     @ApiOperation("分页查询订单信息")
     @GetMapping("getPaymentByPage")
     public CommonResult getPaymentByPage(@RequestParam Integer pageNumber, @RequestParam Integer pageSize) {
-        return restTemplate.getForObject(PAYMENT_URL + "/payment/getPaymentPage?pageNumber=" + pageNumber +
+        return restTemplate.getForObject(PAYMENT_URL + "/payment/getPaymentPage?pageNum=" + pageNumber +
                         "&pageSize" +
                         "=" + pageSize,
                 CommonResult.class);

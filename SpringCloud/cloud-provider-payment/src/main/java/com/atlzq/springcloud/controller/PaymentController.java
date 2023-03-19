@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,9 @@ import java.util.List;
 @RestController
 @RequestMapping("payment")
 public class PaymentController {
+
+    @Value("${server.port}")
+    private String serverPort;
 
     @Autowired
     private PaymentService paymentService;
@@ -36,6 +40,7 @@ public class PaymentController {
     @ApiOperation("通过id查询订单")
     public CommonResult getPaymentById(@RequestParam String id){
         Payment payment = paymentService.getById(id);
+        System.out.println("端口号"+serverPort);
         return new CommonResult(payment);
     }
 
